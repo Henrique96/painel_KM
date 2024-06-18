@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classmath</title>
+    <script type="text/javascript" src="./main.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="icon" href="./icon.png">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .main_div_inputs {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        #resultado {
+            display: none;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a class="navbar-brand" >Sistema de apoio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="./painel.html">Início</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./calculo_prod.html">Calcular produção</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./format.html">Formatar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./projetos.html">Projetos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Ferramenta 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="main_div_inputs">
+            <h2 class="text-center mb-4">Calculadora de Produção</h2>
+            <div class="mb-1">
+                <label for="AGROVALE" class="form-label">AGROVALE</label>
+                <input type="number" class="form-control" id="AGROVALE" name="AGROVALE">
+            </div>
+            <div class="mb-1">
+                <label for="GNA" class="form-label">GNA</label>
+                <input type="number" class="form-control" id="GNA" name="GNA">
+            </div>
+            <div class="mb-1">
+                <label for="GILBARCO" class="form-label">GILBARCO</label>
+                <input type="number" class="form-control" id="GILBARCO" name="GILBARCO">
+            </div>
+            <div class="mb-1">
+                <label for="UNIVERSAL" class="form-label">UNIVERSAL</label>
+                <input type="number" class="form-control" id="UNIVERSAL" name="UNIVERSAL">
+            </div>
+            <div class="mb-1">
+                <label for="BOPAPER" class="form-label">BOPAPER</label>
+                <input type="number" class="form-control" id="BOPAPER" name="BOPAPER">
+            </div>
+            <div class="mb-1">
+                <label for="ORIZON" class="form-label">ORIZON</label>
+                <input type="number" class="form-control" id="ORIZON" name="ORIZON">
+            </div>
+            <div class="mb-1">
+                <label for="LHOIST" class="form-label">LHOIST</label>
+                <input type="number" class="form-control" id="LHOIST" name="LHOIST">
+            </div>
+            <div class="mb-1">
+                <label for="resultado" class="form-label">Resultado</label>
+                <div id="resultado" name="resultado"></div>
+            </div>
+            <button class="btn btn-primary w-100" onclick="calcular_producao()">Calcular</button>
+        </div>
+    </main>
+</body>
+</html>
