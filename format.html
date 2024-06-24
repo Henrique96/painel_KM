@@ -88,6 +88,32 @@
         </div>
     </main>
 
+    <script>
+        function removerAcentos(texto) {
+            return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        function removerPreposicoes(texto) {
+            const preposicoes = [
+                " a ", " ante ", " após ", " até ", " com ", " contra ", " de ", " desde ", " em ", " entre ", " para ", " perante ", " por ", " sem ", " sob ", " sobre ", " trás "
+            ];
+            let resultado = texto;
+            preposicoes.forEach(preposicao => {
+                // Remover a preposição isolada ou com espaços ao redor
+                const regex = new RegExp(`\\b${preposicao.trim()}\\b`, "gi");
+                resultado = resultado.replace(regex, " ");
+            });
+            return resultado.trim().replace(/\s\s+/g, ' ');
+        }
+
+        function formatar_texto() {
+            let texto = document.getElementById('format_input').value;
+            texto = removerAcentos(texto);
+            texto = removerPreposicoes(texto);
+            document.getElementById('format_input').value = texto;
+        }
+    </script>
+
 </body>
 
 </html>
