@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classmath</title>
+    <title>Painel de apoio</title>
     <script type="text/javascript" src="./js/main.js"></script>
     <script type="text/javascript" src="./js/format.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -54,6 +54,16 @@
             height: 150px;
             margin-bottom: 10px;
         }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
     </style>
 </head>
 
@@ -61,15 +71,16 @@
     <div id="demo"></div>
 
     <!-- CABEÇALHO -->
+    <header></header>
     <script src="./link.js"></script>
 
     <main class="main-content">
         <h1>Formatar</h1>
         <div class="center_div">
+            <button class="btn btn-secondary" onclick="toUpperCase()">Tornar Maiúscula</button><br>
             <textarea id="format_input"></textarea>
             <button class="btn btn-primary" onclick="formatar_texto()">Executar</button>
             <textarea id="output_textarea" style="display: none; margin-top: 10px;"></textarea> <br>
-            <button class="btn btn-secondary" onclick="toUpperCase()">Tornar Maiúscula</button>
 
             <script>
                 function toUpperCase() {
@@ -79,6 +90,8 @@
             </script>
         </div>
     </main>
+    <footer></footer>
+    <script src="./footer.js"></script>
 
     <script>
         function removerAcentos(texto) {

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classmath</title>
+    <title>Painel de apoio</title>
     <script type="text/javascript" src="./js/main.js"></script>
     <script type="text/javascript" src="./js/format.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -12,65 +12,34 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
-        <link rel="icon" href="./images/icon.png">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            color: #343a40;
-        }
-
-        .main-content {
-            padding: 50px 15px;
-            text-align: center;
-        }
-
-        .main-content h1 {
-            font-size: 3rem;
-            font-weight: bold;
-        }
-
-        .main-content p {
-            font-size: 1.25rem;
-            margin-top: 20px;
-        }
-
-        .center_div {
-            margin: 8px;
-            padding: 8px;
-            background-color: lightblue;
-            width: 50%;
-            height: auto;
-            margin: auto;
-            align-self: center;
-            align-content: center;
-            justify-content: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .center_div textarea {
-            width: 100%;
-            height: 150px;
-            margin-bottom: 10px;
-        }
-    </style>
+    <link rel="icon" href="./images/icon.png">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
-
 <body onload="store_log()">
     <div id="demo"></div>
 
     <!-- CABEÇALHO -->
+    <header></header>
     <script src="./link.js"></script>
 
     <main class="main-content">
         <h1>Formatar</h1>
         <div class="center_div">
+            <button class="btn btn-secondary" onclick="toUpperCase()">Tornar Maiúscula</button><br>
             <textarea id="format_input"></textarea>
             <button class="btn btn-primary" onclick="formatar_texto()">Executar</button>
-            <textarea id="output_textarea" style="display: none; margin-top: 10px;"></textarea>
+            <textarea id="output_textarea" style="display: none; margin-top: 10px;"></textarea> <br>
+
+            <script>
+                function toUpperCase() {
+                    let textArea = document.getElementById('format_input');
+                    textArea.value = textArea.value.toUpperCase();
+                }
+            </script>
         </div>
     </main>
+    <footer></footer>
+    <script src="./footer.js"></script>
 
     <script>
         function removerAcentos(texto) {

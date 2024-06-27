@@ -14,11 +14,15 @@ var headerLink = `
                         <li class="nav-item"><a class="nav-link" href="./material.html">Material Técnico</a></li>
                     </ul>
                 </div>
+
+                <div class="icon_links" style="float:right;">
+                    <img src="" alt="">
+                </div>
             </div>
         </nav>
    `
 
-var header = document.getElementsByTagName("body")[0]; // Acessa o primeiro (e único) elemento <header>
+var header = document.getElementsByTagName("header")[0]; // Acessa o primeiro (e único) elemento <header>
 
 if (header) { // Verifica se o elemento <header> existe
     header.innerHTML = headerLink;
