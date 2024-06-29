@@ -59,14 +59,20 @@
             return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         }
 
+        function substituirPreposicoes(texto) {
+            texto = texto.replace(/ com /gi, " C/");
+            texto = texto.replace(/ para /gi, " P/");
+            return texto;
+        }
+
         function removerPreposicoes(texto) {
             const preposicoes = [
-                " a ", " ante ", " apos ", " ate ", " com ", " contra ", " de ", " desde ", " em ", " entre ", " para ", " perante ", " por ", " sem ", " sob ", " sobre ", " tras "
+                " de ", " do ", " da "
             ];
             let resultado = texto;
             preposicoes.forEach(preposicao => {
                 const regex = new RegExp(`\\b${preposicao.trim()}\\b`, "gi");
-                resultado = resultado.replace(regex, " ");
+                resultado = resultado.replace(regex, "");
             });
             return resultado.trim().replace(/\s\s+/g, ' ');
         }
@@ -79,6 +85,7 @@
             document.getElementById("copy_btn").style = "display: block";
             let texto = document.getElementById('format_input').value;
             texto = removerAcentos(texto);
+            texto = substituirPreposicoes(texto);
             texto = removerPreposicoes(texto);
             texto = removerPontuacao(texto);
             let outputTextarea = document.getElementById('output_textarea');
