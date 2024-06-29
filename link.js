@@ -9,9 +9,11 @@ var headerLink = `
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="./links.html">Links</a></li>
                         <li class="nav-item"><a class="nav-link" href="./format.html">Formatar</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./projetos.html">Projetos</a></li>
                         <li class="nav-item"><a class="nav-link" href="./material.html">Material Técnico</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./devolucao.html">Devolução</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./definicoes.html">Definições</a></li>
                     </ul>
                 </div>
 

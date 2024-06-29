@@ -15,6 +15,7 @@
     <link rel="icon" href="./images/icon.png">
     <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body onload="store_log()">
     <div id="demo"></div>
 
@@ -29,11 +30,23 @@
             <textarea id="format_input"></textarea>
             <button class="btn btn-primary" onclick="formatar_texto()">Executar</button>
             <textarea id="output_textarea" style="display: none; margin-top: 10px;"></textarea> <br>
+            <button class="btn btn-success" style="display: none;" id="copy_btn" onclick="copiarTexto()">Copiar Texto</button>
+            <!-- Botão para copiar texto -->
+            <div id="balao" style="display: none;">Copiado</div>
 
             <script>
                 function toUpperCase() {
                     let textArea = document.getElementById('format_input');
                     textArea.value = textArea.value.toUpperCase();
+                }
+
+                function copiarTexto() {
+                    let outputTextarea = document.getElementById('output_textarea');
+                    outputTextarea.select();
+                    document.execCommand('copy');
+                    let balao = document.getElementById('balao');
+                    balao.style.display = "block";
+                    setTimeout(function apareca() {balao.style.display = "none"}, 2000);
                 }
             </script>
         </div>
@@ -63,6 +76,7 @@
         }
 
         function formatar_texto() {
+            document.getElementById("copy_btn").style = "display: block";
             let texto = document.getElementById('format_input').value;
             texto = removerAcentos(texto);
             texto = removerPreposicoes(texto);
