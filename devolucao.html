@@ -8,12 +8,97 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
     <script>
-        
+        function updateTextarea() {
+            const idItem = document.getElementById('id-item').value;
+            const codigo = document.getElementById('codigo').value;
+            const idSin = document.getElementById('id-sin').value;
+            const textarea = document.getElementById('message-textarea');
+            
+            let message = 'PREZADO SOLICITANTE, FOI IDENTIFICADO DUPLICIDADE';
+            if (idItem) {
+                message += ` COM O ID-ITEM: ${idItem}`;
+            }
+            if (codigo) {
+                message += `, CODIGO: ${codigo}`;
+            }
+            if (idSin) {
+                message += `, ID-SIN: ${idSin}`;
+            }
+            message += '. VERIFICAR SE VINCULAMOS OU CANCELAMOS ESTA SOLICITAÇÃO. OBRIGADO!';
+            textarea.value = message;
+        }
+
+        function copyTextarea() {
+            const textarea = document.getElementById('message-textarea');
+            textarea.select();
+            document.execCommand('copy');
+            showPopup();
+        }
+
+        function showPopup() {
+            const popup = document.getElementById('popup');
+            popup.classList.add('show');
+            setTimeout(() => {
+                popup.classList.remove('show');
+            }, 2000);
+        }
     </script>
+    <style>
+        #popup {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #28a745;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            top: 30px;
+            font-size: 17px;
+        }
+
+        #popup.show {
+            visibility: visible;
+            animation: fadein 0.5s, fadeout 0.5s 1.5s;
+        }
+
+        @keyframes fadein {
+            from {top: 0; opacity: 0;} 
+            to {top: 30px; opacity: 1;}
+        }
+
+        @keyframes fadeout {
+            from {top: 30px; opacity: 1;} 
+            to {top: 0; opacity: 0;}
+        }
+    </style>
 </head>
 <body>
     <header></header>
-    <main class="container mt-5"></main>
+    <main class="container mt-5">
+        <div class="texto">
+            <div class="form-group">
+                <label for="id-item">ID-ITEM:</label>
+                <input type="text" id="id-item" class="form-control" oninput="updateTextarea()">
+            </div>
+            <div class="form-group">
+                <label for="codigo">CODIGO:</label>
+                <input type="text" id="codigo" class="form-control" oninput="updateTextarea()">
+            </div>
+            <div class="form-group">
+                <label for="id-sin">ID-SIN:</label>
+                <input type="text" id="id-sin" class="form-control" oninput="updateTextarea()">
+            </div>
+            <textarea id="message-textarea" class="form-control" rows="5">
+PREZADO SOLICITANTE, FOI IDENTIFICADO DUPLICIDADE. VERIFICAR SE VINCULAMOS OU CANCELAMOS ESTA SOLICITAÇÃO. OBRIGADO!
+            </textarea>
+            <button class="btn btn-primary mt-3" onclick="copyTextarea()">Copiar Texto</button>
+        </div>
+    </main>
+    <div id="popup">Texto copiado com sucesso!</div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
