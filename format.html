@@ -67,7 +67,7 @@
 
         function removerPreposicoes(texto) {
             const preposicoes = [
-                " de ", " do ", " da "
+                " de ", " do ", " da ", " em "
             ];
             let resultado = texto;
             preposicoes.forEach(preposicao => {
@@ -78,7 +78,17 @@
         }
 
         function removerPontuacao(texto) {
-            return texto.replace(/[.,:;%$#@*&!)(]/g, '');
+            // Remove todas as pontuações exceto a vírgula que está entre dois números
+            return texto.replace(/(?<!\d),(?!\d)|[.:;$#@*&!)(]/g, '');
+        }
+
+        function substituirPorcentagem(texto) {
+            return texto.replace(/%/g, 'PCT');
+        }
+
+        function substituirNao(texto) {
+            // Substitui "NÃO" e "NAO" por "N/" sem espaço entre "N/" e a próxima palavra
+            return texto.replace(/\bN[ÃA]O\b/gi, 'N/');
         }
 
         function formatar_texto() {
@@ -87,6 +97,8 @@
             texto = removerAcentos(texto);
             texto = substituirPreposicoes(texto);
             texto = removerPreposicoes(texto);
+            texto = substituirPorcentagem(texto);
+            texto = substituirNao(texto);
             texto = removerPontuacao(texto);
             let outputTextarea = document.getElementById('output_textarea');
             outputTextarea.value = texto;

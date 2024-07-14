@@ -18,6 +18,28 @@ body {
     margin-top: 20px;
 }
 
+#links_material a {
+    background-color: rgb(9, 51, 128); /* Cor de fundo azul */
+    border: none; /* Remove bordas */
+    color: white; /* Cor do texto branca */
+    padding: 42px 54px; /* Espaçamento interno */
+    text-align: center; /* Alinha o texto ao centro */
+    text-decoration: none; /* Remove a sublinha do texto */
+    display: inline-block; /* Exibe como um bloco inline */
+    font-size: 16px; /* Tamanho da fonte */
+    margin: 4px 2px; /* Margens */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+    border-radius: 8px; /* Borda arredondada */
+    transition-duration: 0.4s; /* Transição suave */
+}
+
+#links_material a:hover {
+    background-color: #0370e4; /* Cor de fundo ao passar o mouse */
+    color: white; /* Cor do texto ao passar o mouse */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Sombra ao passar o mouse */
+}
+
+
 .center_div {
     margin: 8px;
     padding: 8px;
@@ -42,7 +64,7 @@ body {
 footer {
     background-color: #343a40;
     color: white;
-    padding: 20px 0;
+    padding: 5px 0;
     text-align: center;
     position: fixed;
     width: 100%;

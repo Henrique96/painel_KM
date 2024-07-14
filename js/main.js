@@ -23,6 +23,7 @@ function store_log(){
 	// localStorage.clear();
 }
 
+/*
 function calcular_producao(){
 	// AGROVALE GNA GILBARCO UNIVERSAL BOPAPER ORIZON LHOIST
 
@@ -49,4 +50,4 @@ function calcular_producao(){
 
 	resultado_prod.style.display = "block";
 	resultado_prod.append(resultado);
-}
+} */
