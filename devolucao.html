@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,7 @@
             const codigo = document.getElementById('codigo').value;
             const idSin = document.getElementById('id-sin').value;
             const textarea = document.getElementById('message-textarea');
-            
+
             let message = 'PREZADO SOLICITANTE, FOI IDENTIFICADO DUPLICIDADE';
             if (idItem) {
                 message += ` COM O ID-ITEM: ${idItem}`;
@@ -66,16 +67,31 @@
         }
 
         @keyframes fadein {
-            from {top: 0; opacity: 0;} 
-            to {top: 30px; opacity: 1;}
+            from {
+                top: 0;
+                opacity: 0;
+            }
+
+            to {
+                top: 30px;
+                opacity: 1;
+            }
         }
 
         @keyframes fadeout {
-            from {top: 30px; opacity: 1;} 
-            to {top: 0; opacity: 0;}
+            from {
+                top: 30px;
+                opacity: 1;
+            }
+
+            to {
+                top: 0;
+                opacity: 0;
+            }
         }
     </style>
 </head>
+
 <body>
     <header></header>
     <main class="container mt-5">
@@ -106,4 +122,5 @@ PREZADO SOLICITANTE, FOI IDENTIFICADO DUPLICIDADE. VERIFICAR SE VINCULAMOS OU CA
     <footer></footer>
     <script src="./js/footer.js"></script>
 </body>
+
 </html>
