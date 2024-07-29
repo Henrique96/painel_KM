@@ -14,6 +14,7 @@ var headerLink = `
                         <li class="nav-item"><a class="nav-link" href="./material.html">Material Técnico</a></li>
                         <li class="nav-item"><a class="nav-link" href="./devolucao.html">Devolução</a></li>
                         <li class="nav-item"><a class="nav-link" href="./definicoes.html">Definições</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./conversor.html">Conversor</a></li>
                     </ul>
                 </div>
 

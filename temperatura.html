@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de apoio</title>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link rel="icon" href="./images/icon.png">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .main-content {
+            padding: 50px 15px;
+            text-align: center;
+        }
+
+        .main-content h1 {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .main-content p {
+            font-size: 1.25rem;
+            margin-top: 20px;
+        }
+
+        .links_projetos {
+            background-color: #3646b0;
+            /* Blue */
+            border: none;
+            border-radius: 8px;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .links_projetos:hover {
+            background-color: lightgreen;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="demo"></div>
+
+    <!-- CABEÇALHO -->
+    <header></header>
+    <script src="./js/link.js"></script>
+
+    <main class="main-content">
+        <h1>Conversor de Temperatura</h1>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="tempInput" class="form-label">Celsius para Fahrenheit:</label>
+                        <input type="number" class="form-control" id="tempInput" placeholder="*C">
+                        <p class="mt-3" id="tempResult"></p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="tempInputF" class="form-label">Fahrenheit para Celsius:</label>
+                        <input type="number" class="form-control" id="tempInputF" placeholder="*F">
+                        <p class="mt-3" id="tempResultF"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       <a href="./conversor.html" class="links_projetos">Voltar</a>
+    </main>
+
+    <footer></footer>
+    <script src="./js/footer.js"></script>
+
+    <script>
+        function convertTemp() {
+            var celsius = document.getElementById('tempInput').value;
+            var fahrenheit = (celsius * 9 / 5) + 32;
+            document.getElementById('tempResult').innerText = 'Resultado: ' + fahrenheit.toFixed(2) + ' °F';
+        }
+
+        function convertTempF() {
+            var fahrenheit = document.getElementById('tempInputF').value;
+            var celsius = (fahrenheit - 32) * 5 / 9;
+            document.getElementById('tempResultF').innerText = 'Resultado: ' + celsius.toFixed(2) + ' °C';
+        }
+
+        document.getElementById('tempInput').addEventListener('input', convertTemp);
+        document.getElementById('tempInputF').addEventListener('input', convertTempF);
+    </script>
+
+</body> 
+
+</html>
