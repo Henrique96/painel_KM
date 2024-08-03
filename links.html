@@ -63,15 +63,29 @@
         .btn_projetos {
             padding: 18px;
             margin: 18px;
+            /* margin: 0px 9px 0px 0px; */
             border: 1px black dashed;
             border-radius: 8px;
         }
 
         .btn_busca {
             padding: 18px;
-            margin: 18px;
-            border: 0.5px black solid;
+            margin: 18px;            
+            border: 2px black outset;
             border-radius: 8px;
+        }
+
+        .btn_limpa_busca {
+            background-color: rgb(255, 54, 54);
+            color: black;
+            padding: 18px;
+            margin: 0px 9px 0px 0px;
+            border: 2px black outset;
+            border-radius: 8px;
+        }
+
+        .btn_limpa_busca:hover {
+            color: white;
         }
     </style>
 </head>
@@ -113,9 +127,10 @@
             <a href="https://lhoist.klassmatt.com.br" target="_blank"><button class="links_projetos">Lhoist</button></a>
         </div>
         <br><br>
-        <button class="btn_projetos" onclick="mostrar_todos_projetos()">Mostrar todos os projetos</button>
+        <button class="btn_projetos" onclick="toggleProjetos()">Mostrar todos os projetos</button>
             <div id="todos_projetos"> <br>
-            <input type="text" id="busca" class="btn_busca" onkeyup="filtrarProjetos()" placeholder="Buscar projetos..."> <br>
+            <input type="text" id="busca" class="btn_busca" onkeyup="filtrarProjetos()" placeholder="Buscar projetos...">
+            <button class="btn_limpa_busca" onclick="limparBusca()">Limpar</button> <br>
                 <a href="https://3rpetroleum.klassmatt.com.br" target="_blank"><button class="links_projetos">3RPETROLEUM</button></a>
                 <a href="https://aes.klassmatt.com.br" target="_blank"><button class="links_projetos">AES_S4HANA</button></a>
                 <a href="https://agraria.klassmatt.com.br" target="_blank"><button class="links_projetos">AGRARIA</button></a>
@@ -302,9 +317,13 @@
     </main>
     <footer></footer>
     <script>
-        function mostrar_todos_projetos() {
+        function toggleProjetos() {
             var tds_projetos = document.getElementById("todos_projetos");
-            tds_projetos.style.display = "block";
+            if (tds_projetos.style.display === "block") {
+                tds_projetos.style.display = "none";
+            } else {
+                tds_projetos.style.display = "block";
+            }
         }
 
         function filtrarProjetos() {
@@ -323,6 +342,11 @@
                     a[i].style.display = "none";
                 }
             }
+        }
+
+        function limparBusca() {
+            document.getElementById('busca').value = '';
+            filtrarProjetos(); // Atualiza a exibição dos projetos
         }
     </script>
     <script src="./js/footer.js"></script>
