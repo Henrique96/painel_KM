@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="pt-br">
 
 <head>
@@ -25,14 +26,15 @@
 
     <main class="main-content">
         <h1>Formatar</h1>
-        <p>O Formatar remove preposições, acentos e símbolos. Padronizando qualquer texto desejado.  </p>
+        <p>O Formatar remove preposições, acentos e símbolos. Padronizando qualquer texto desejado. </p>
 
         <div class="center_div">
             <button class="btn btn-secondary" onclick="toUpperCase()">Tornar Maiúscula</button><br>
             <textarea id="format_input"></textarea>
             <button class="btn btn-primary" onclick="formatar_texto()">Executar</button>
             <textarea id="output_textarea" style="display: none; margin-top: 10px;"></textarea> <br>
-            <button class="btn btn-success" style="display: none;" id="copy_btn" onclick="copiarTexto()">Copiar Texto</button>
+            <button class="btn btn-success" style="display: none;" id="copy_btn" onclick="copiarTexto()">Copiar
+                Texto</button>
             <!-- Botão para copiar texto -->
             <div id="balao" style="display: none;">Copiado</div>
 
@@ -48,7 +50,7 @@
                     document.execCommand('copy');
                     let balao = document.getElementById('balao');
                     balao.style.display = "block";
-                    setTimeout(function apareca() {balao.style.display = "none"}, 2000);
+                    setTimeout(function apareca() { balao.style.display = "none" }, 2000);
                 }
             </script>
         </div>
@@ -69,12 +71,12 @@
 
         function removerPreposicoes(texto) {
             const preposicoes = [
-                " de ", " do ", " da ", " em "
+                " de ", " do ", " da ", " em ", " e ", " ao ", " por "
             ];
             let resultado = texto;
             preposicoes.forEach(preposicao => {
                 const regex = new RegExp(`\\b${preposicao.trim()}\\b`, "gi");
-                resultado = resultado.replace(regex, "");
+                resultado = resultado.replace(regex, " ");
             });
             return resultado.trim().replace(/\s\s+/g, ' ');
         }
@@ -82,10 +84,6 @@
         function removerPontuacao(texto) {
             // Remove todas as pontuações exceto a vírgula que está entre dois números
             return texto.replace(/(?<!\d),(?!\d)|[.:;$#@*&!)(]/g, '');
-        }
-
-        function substituirPorcentagem(texto) {
-            return texto.replace(/%/g, 'PCT');
         }
 
         function substituirNao(texto) {
@@ -99,15 +97,14 @@
             texto = removerAcentos(texto);
             texto = substituirPreposicoes(texto);
             texto = removerPreposicoes(texto);
-            texto = substituirPorcentagem(texto);
             texto = substituirNao(texto);
             texto = removerPontuacao(texto);
+            texto = texto.replace(/\s\s+/g, ' '); // Remove espaços duplos
             let outputTextarea = document.getElementById('output_textarea');
             outputTextarea.value = texto;
             outputTextarea.style.display = 'block';
         }
+
     </script>
 
 </body>
-
-</html>
