@@ -59,9 +59,6 @@
     <script src="./js/footer.js"></script>
 
     <script>
-        function removerAcentos(texto) {
-            return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-        }
 
         function substituirPreposicoes(texto) {
             texto = texto.replace(/ com /gi, " C/");
@@ -69,6 +66,25 @@
             texto = texto.replace(/ sem /gi, " S/");
             return texto;
         }
+        
+        function formatar_texto() {
+            document.getElementById("copy_btn").style = "display: block";
+            let texto = document.getElementById('format_input').value;
+            texto = removerAcentos(texto);
+            texto = substituirPreposicoes(texto); // Substituir preposições antes de removê-las
+            texto = substituirNao(texto);         // Substituir "NÃO" antes de remover preposições
+            texto = removerPreposicoes(texto);    // Remover preposições após substituições
+            texto = removerPontuacao(texto);
+            texto = texto.replace(/\s\s+/g, ' '); // Remove espaços duplos
+            let outputTextarea = document.getElementById('output_textarea');
+            outputTextarea.value = texto;
+            outputTextarea.style.display = 'block';
+        }
+
+        function removerAcentos(texto) {
+            return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
 
         function removerPreposicoes(texto) {
             const preposicoes = [
@@ -92,19 +108,8 @@
             return texto.replace(/\bN[ÃA]O\b/gi, 'N/');
         }
 
-        function formatar_texto() {
-            document.getElementById("copy_btn").style = "display: block";
-            let texto = document.getElementById('format_input').value;
-            texto = removerAcentos(texto);
-            texto = substituirPreposicoes(texto);
-            texto = removerPreposicoes(texto);
-            texto = substituirNao(texto);
-            texto = removerPontuacao(texto);
-            texto = texto.replace(/\s\s+/g, ' '); // Remove espaços duplos
-            let outputTextarea = document.getElementById('output_textarea');
-            outputTextarea.value = texto;
-            outputTextarea.style.display = 'block';
-        }
+
+
 
     </script>
 

@@ -1,5 +1,13 @@
 // links
 
+/*
+
+                        <li class="nav-item"><a class="nav-link" href="./conversor.html">Conversor</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./material.html">Material Técnico</a></li>
+                        <li class="nav-item"><a class="nav-link" href="./definicoes.html">Definições</a></li>
+
+*/ 
+
 var headerLink = `
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
             <div class="container-fluid">
@@ -11,10 +19,7 @@ var headerLink = `
                     <ul class="navbar-nav">
                         <li class="nav-item"><a class="nav-link" href="./links.html">Links</a></li>
                         <li class="nav-item"><a class="nav-link" href="./format.html">Formatar</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./material.html">Material Técnico</a></li>
                         <li class="nav-item"><a class="nav-link" href="./devolucao.html">Devolução</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./definicoes.html">Definições</a></li>
-                        <li class="nav-item"><a class="nav-link" href="./conversor.html">Conversor</a></li>
                     </ul>
                 </div>
 
